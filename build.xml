@@ -15,7 +15,7 @@
     <property name="main-class"  value="unittest.UnitTest1"/>
 
 	   <path id="classpath.test">
-	      <pathelement location="/lib/junit-4.10.jar" />
+	      <pathelement location="lib/junit-4.10.jar" />
 	   </path>
 	
     <target name="clean">
