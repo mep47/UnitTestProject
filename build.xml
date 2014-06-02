@@ -41,29 +41,13 @@
         </jar>
     </target>
 	
-    <target name="run_tests" depends="jar">
-        <mkdir dir="${report.dir}"/>
-        <junit printsummary="yes">
-            <classpath>
-                <path refid="classpath.test"/>
-                <path refid="application"/>
-            </classpath>
-            
-            <formatter type="xml"/>
-            
-            <batchtest fork="yes" todir="${report.dir}">
-                <fileset dir="${src.dir}" includes="*.java"/>
-            </batchtest>
-        </junit>
-    </target>
-    
-    <target name="junitreport">
-        <junitreport todir="${report.dir}">
-            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
-            <report todir="${report.dir}"/>
-        </junitreport>
-    </target>
-
+	<target name="run_tests" depends="compile">
+	    <junit>
+	      <classpath refid="classpath.test" />
+	      <formatter type="brief" usefile="false" />
+	      <test name="unittest.UnitTest1" />
+	    </junit>
+	  </target>
 
     <target name="run" depends="jar">
         <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
