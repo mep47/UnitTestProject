@@ -10,12 +10,14 @@
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
     <property name="jar.dir"     value="${build.dir}/jar"/>
+    <property name="lib.dir"     value="lib"/>
 
     <property name="main-class"  value="unittest.UnitTest1"/>
 
-	<fileset dir="lib" id="TSA.classpath">
-		<include name="**/*.jar" />
-	</fileset>
+    <path id="classpath">
+        <fileset dir="${lib.dir}" includes="**/*.jar"/>
+        <path location="[LocalPath]/junit-4.8.2.jar"/>
+    </path>
 	
     <target name="clean">
         <delete dir="${build.dir}"/>
@@ -23,9 +25,7 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}">
-        	<classpath path="TSA.classpath"/>
-		</javac>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
     </target>
 
     <target name="jar" depends="compile">
@@ -40,7 +40,7 @@
 	<target name="run_tests" depends="jar">
 		<junit>
 			<formatter type="xml" usefile="true" />
-			<classpath path="TSA.classpath" />
+			<classpath path="classpath" />
 			<test name="unittest.UnitTest1" />
 		</junit>
 	</target>
