@@ -43,9 +43,10 @@
     </target>
 	
 	<target name="run_tests" depends="compile">
+		<mkdir dir="${report.dir}"/>
 	    <junit>
 	      <classpath refid="classpath.test" />
-	      <formatter type="brief" usefile="false" />
+	      <formatter type="xml" usefile="false" />
 	      <test name="unittest.UnitTest1" />
 	    </junit>
 	  </target>
