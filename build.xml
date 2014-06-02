@@ -37,7 +37,7 @@
         </jar>
     </target>
 	
-	<target name="run_tests">
+	<target name="run_tests" depends="jar">
 		<junit>
 			<formatter type="xml" usefile="true" />
 			<classpath refid="tests.classpath" />
