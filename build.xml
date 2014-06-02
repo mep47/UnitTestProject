@@ -50,7 +50,13 @@
 	      <test name="unittest.UnitTest1" />
 	    </junit>
 	  </target>
-
+	
+	<target name="junitreport">
+	        <junitreport todir="${report.dir}">
+	            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
+	            <report todir="${report.dir}"/>
+	        </junitreport>
+	    </target>
     <target name="run" depends="jar">
         <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
