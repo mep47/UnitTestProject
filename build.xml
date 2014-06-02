@@ -45,7 +45,7 @@
 	    <junit>
 	      <classpath refid="classpath.test" />
 	      <formatter type="brief" usefile="false" />
-	      <test name="unittest.UnitTest1" />
+	      <test name="UnitTest1" />
 	    </junit>
 	  </target>
 
