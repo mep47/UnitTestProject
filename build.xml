@@ -24,6 +24,7 @@
     </target>
 
     <target name="compile">
+    	<classpath path="${test.classpath}"/>
         <mkdir dir="${classes.dir}"/>
         <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
     </target>
