@@ -41,7 +41,7 @@
 	<target name="run_tests" depends="jar">
 		<junit>
 			<formatter type="xml" usefile="true" />
-			<classpath refid="classpath.test" />
+			<classpath path="lib/junit-4.10.jar"/>
 			<test name="unittest.UnitTest1" />
 		</junit>
 	</target>
