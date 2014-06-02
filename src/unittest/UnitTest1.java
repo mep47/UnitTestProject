@@ -12,8 +12,9 @@ static public void main(String[] args)
 	System.out.println("Running UnitTest1");
 	File file = new File("/var/lib/jenkins/workspace/JenkinsTest/build/jar/JenkinsTest.jar");
 	file.setExecutable(true, true);
+	
     ProcessBuilder builder = new ProcessBuilder(
-            "java -jar /var/lib/jenkins/workspace/JenkinsTest/build/jar/JenkinsTest.jar");
+            "java", "-jar", "/var/lib/jenkins/workspace/JenkinsTest/build/jar/JenkinsTest.jar");
         builder.redirectErrorStream(true);
         Process p = null;
 		try {
