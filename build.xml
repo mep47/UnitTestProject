@@ -1,6 +1,11 @@
 <project name="Unit Test" basedir="." default="main">
 
+	<property environment="env"/>
+	
     <property name="src.dir"     value="src"/>
+	<property name="workspace.dir" value="${env.WORKSPACE}"/>
+	<echo message="${workspace.dir}"/>
+	<property name="test1" value="${workspace.dir}/UnitTestProject/build/jar/JenkinsTest.jar"/>
 
     <property name="build.dir"   value="build"/>
     <property name="classes.dir" value="${build.dir}/classes"/>
