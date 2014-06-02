@@ -44,7 +44,7 @@ public void test1()
 		}
         System.out.println(line);
 //	String line = "J";
-        assertEquals("The results of test1 must match", "Jenkins Test", line.charAt(0));
+        assertEquals("The results of test1 must match", "Jenkins Test", line);
 //	assertTrue("Always Assert True", true);
 }
 
