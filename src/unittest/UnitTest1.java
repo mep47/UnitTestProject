@@ -42,7 +42,7 @@ public void test1()
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-        assertEquals("The results of test1 must match'", "Jenkins Test", line);
+        assertEquals("The results of test1 must match", "Jenkins Test\n", line);
 }
 
 }
