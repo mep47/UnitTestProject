@@ -14,10 +14,9 @@
 
     <property name="main-class"  value="unittest.UnitTest1"/>
 
-    <path id="classpath">
-        <fileset dir="${lib.dir}" includes="**/*.jar"/>
-        <path location="[LocalPath]/junit-4.8.2.jar"/>
-    </path>
+	   <path id="classpath.test">
+	      <pathelement location="/lib/junit-4.10.jar" />
+	   </path>
 	
     <target name="clean">
         <delete dir="${build.dir}"/>
@@ -25,7 +24,9 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}" classpathref="classpath"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}">
+        	classpath refid="classpath.test"/>
+        </javac>
     </target>
 
     <target name="jar" depends="compile">
@@ -40,7 +41,7 @@
 	<target name="run_tests" depends="jar">
 		<junit>
 			<formatter type="xml" usefile="true" />
-			<classpath path="classpath" />
+			<classpath refid="classpath.test" />
 			<test name="unittest.UnitTest1" />
 		</junit>
 	</target>
