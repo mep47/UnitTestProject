@@ -17,7 +17,7 @@
 
 	   <path id="classpath.test">
 	      <pathelement location="lib/junit-4.10.jar" />
-	      <pathelement location="${src.dir}" />
+	      <pathelement location="${classes.dir}" />
 	   </path>
 	
 	 <path id="application" location="${jar.dir}/${ant.project.name}.jar"/>
