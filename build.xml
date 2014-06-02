@@ -1,4 +1,4 @@
-<project name="Unit Test" basedir="." default="main">
+<project name="UnitTest" basedir="." default="main">
 
 	<property environment="env"/>
 	
