@@ -24,9 +24,10 @@
     </target>
 
     <target name="compile">
-    	<classpath path="${test.classpath}"/>
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}">
+        	<classpath path="${test.classpath}"/>
+		</javac>
     </target>
 
     <target name="jar" depends="compile">
