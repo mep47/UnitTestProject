@@ -46,14 +46,14 @@
 		<mkdir dir="${report.dir}"/>
 	    <junit>
 	      <classpath refid="classpath.test" />
-	      <formatter type="xml" usefile="false" />
+	      <formatter type="xml" />
 	      <test name="unittest.UnitTest1" />
 	    </junit>
 	  </target>
 	
 	<target name="junitreport">
 	        <junitreport todir="${report.dir}">
-	            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
+	            <fileset dir="${report.dir}" includes="TESTS-*.xml"/>
 	            <report todir="${report.dir}"/>
 	        </junitreport>
 	</target>
