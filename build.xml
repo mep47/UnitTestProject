@@ -46,13 +46,8 @@
 		<mkdir dir="${report.dir}"/>
 	    <junit>
 	      <classpath refid="classpath.test" />
-	    	
-	      <formatter type="xml" />
-	    	
-          <batchtest fork="yes" todir="${report.dir}">
-              <fileset dir="${src.dir}" includes="*Test.java"/>
-          </batchtest>
-
+	      <formatter type="xml" usefile="false" />
+	      <test name="unittest.UnitTest1" />
 	    </junit>
 	  </target>
 	
@@ -69,6 +64,6 @@
 
     <target name="clean-build" depends="clean,jar"/>
 
-    <target name="main" depends="clean,run_tests"/>
+    <target name="main" depends="clean,run_tests,junitreport"/>
 
 </project>
