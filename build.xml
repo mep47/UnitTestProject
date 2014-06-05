@@ -69,6 +69,6 @@
 
     <target name="clean-build" depends="clean,jar"/>
 
-    <target name="main" depends="clean,run_tests,junitreport"/>
+    <target name="main" depends="clean,run_tests"/>
 
 </project>
