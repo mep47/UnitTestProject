@@ -46,8 +46,13 @@
 		<mkdir dir="${report.dir}"/>
 	    <junit>
 	      <classpath refid="classpath.test" />
-	      <formatter type="xml" usefile="false" />
-	      <test name="unittest.UnitTest1" />
+	    	
+	      <formatter type="xml" />
+	    	
+          <batchtest fork="yes" todir="${report.dir}">
+              <fileset dir="${src.dir}" includes="*Test.java"/>
+          </batchtest>
+
 	    </junit>
 	  </target>
 	
@@ -56,7 +61,8 @@
 	            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
 	            <report todir="${report.dir}"/>
 	        </junitreport>
-	    </target>
+	</target>
+	
     <target name="run" depends="jar">
         <java jar="${jar.dir}/${ant.project.name}.jar" fork="true"/>
     </target>
