@@ -28,8 +28,8 @@
 
     <target name="compile">
         <mkdir dir="${classes.dir}"/>
-        <javac srcdir="${src.dir}" destdir="${classes.dir}">
-        	<classpath path="lib/junit-4.10.jar"/>
+        <javac srcdir="${src.dir}" destdir="${classes.dir}" includeantruntime="false">
+        	<classpath refid="classpath.test" />
         </javac>
     </target>
 
@@ -44,16 +44,22 @@
 	
 	<target name="run_tests" depends="compile">
 		<mkdir dir="${report.dir}"/>
-	    <junit>
-	      <classpath refid="classpath.test" />
+	    <junit printsummary="yes">
+            <classpath>
+                <path refid="classpath.test"/>
+                <path refid="application"/>
+            </classpath>
+	    	
+		    <test name="unittest.UnitTest1" todir="${report.dir}"/>
+
 	      <formatter type="xml" />
-	      <test name="unittest.UnitTest1" />
+	    
 	    </junit>
-	  </target>
+	</target>
 	
 	<target name="junitreport">
 	        <junitreport todir="${report.dir}">
-	            <fileset dir="${report.dir}" includes="TESTS-*.xml"/>
+	            <fileset dir="${report.dir}" includes="TEST-*.xml"/>
 	            <report todir="${report.dir}"/>
 	        </junitreport>
 	</target>
